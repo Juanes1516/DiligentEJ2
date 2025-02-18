@@ -3,13 +3,22 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
+    "inputs": [
+        {
+            "id": "graphicsMode",
+            "type": "pickString",
+            "description": "Select graphics mode",
+            "options": ["vk", "vk_sw", "gl"],
+            "default": "vk"
+        }
+    ],    
     "configurations": [
         {
             "name": "Atmosphere",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Samples/Atmosphere/Atmosphere",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Samples/Atmosphere/Atmosphere",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Samples/Atmosphere/assets",
             "environment": [],
@@ -21,14 +30,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Atmosphere"
         },
         {
             "name": "GLTFViewer",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Samples/GLTFViewer/GLTFViewer",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Samples/GLTFViewer/GLTFViewer",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Samples/GLTFViewer/assets",
             "environment": [],
@@ -40,14 +50,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build GLTFViewer"
         },
         {
             "name": "Shadows",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Samples/Shadows/Shadows",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Samples/Shadows/Shadows",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Samples/Shadows/assets",
             "environment": [],
@@ -59,14 +70,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Shadows"
         },
         {
             "name": "ImguiDemo",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Samples/ImguiDemo/ImguiDemo",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Samples/ImguiDemo/ImguiDemo",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Samples/ImguiDemo/assets",
             "environment": [],
@@ -78,14 +90,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build ImguiDemo"
         },
         {
             "name": "NuklearDemo",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Samples/NuklearDemo/NuklearDemo",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Samples/NuklearDemo/NuklearDemo",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Samples/NuklearDemo/assets",
             "environment": [],
@@ -97,13 +110,14 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build NuklearDemo"
         },
         {
             "name": "GLFWDemo",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Samples/GLFWDemo/GLFWDemo",
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Samples/GLFWDemo/GLFWDemo",
             "args": ["--mode", "vk"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Samples/GLFWDemo/assets",
@@ -116,13 +130,14 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build GLFWDemo"
         },
         {
             "name": "GhostCubeScene",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/UnityPlugin/GhostCubeScene/GhostCubeScene",
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/UnityPlugin/GhostCubeScene/GhostCubeScene",
             "args": ["--mode", "gl"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/UnityPlugin/GhostCubeScene/assets",
@@ -135,16 +150,17 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build GhostCubeScene"
         },
         {
             "name": "Tutorial00_HelloLinux",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial00_HelloLinux/Tutorial00_HelloLinux",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial00_HelloLinux/Tutorial00_HelloLinux",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial00_HelloLinux",
+            "cwd": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial00_HelloLinux",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
@@ -154,14 +170,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial00_HelloLinux"
         },
         {
             "name": "Tutorial01_HelloTriangle",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial01_HelloTriangle/Tutorial01_HelloTriangle",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial01_HelloTriangle/Tutorial01_HelloTriangle",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial01_HelloTriangle/assets",
             "environment": [],
@@ -173,14 +190,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial01_HelloTriangle"
         },
         {
             "name": "Tutorial02_Cube",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial02_Cube/Tutorial02_Cube",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial02_Cube/Tutorial02_Cube",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial02_Cube/assets",
             "environment": [],
@@ -192,14 +210,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial02_Cube"
         },
         {
             "name": "Tutorial03_Texturing",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial03_Texturing/Tutorial03_Texturing",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial03_Texturing/Tutorial03_Texturing",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial03_Texturing/assets",
             "environment": [],
@@ -211,14 +230,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial03_Texturing"
         },
         {
             "name": "Tutorial03_Texturing-C",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial03_Texturing-C/Tutorial03_Texturing-C",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial03_Texturing-C/Tutorial03_Texturing-C",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial03_Texturing-C/assets",
             "environment": [],
@@ -230,14 +250,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial03_Texturing-C"
         },
         {
-            "name": "Tutorial04_Instancig",
+            "name": "Tutorial04_Instancing",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial04_Instancing/Tutorial04_Instancing",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial04_Instancing/Tutorial04_Instancing",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial04_Instancing/assets",
             "environment": [],
@@ -249,14 +270,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial04_Instancing"
         },
         {
             "name": "Tutorial05_TextureArray",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial05_TextureArray/Tutorial05_TextureArray",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial05_TextureArray/Tutorial05_TextureArray",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial05_TextureArray/assets",
             "environment": [],
@@ -268,14 +290,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial05_TextureArray"
         },
         {
             "name": "Tutorial06_Multithreading",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial06_Multithreading/Tutorial06_Multithreading",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial06_Multithreading/Tutorial06_Multithreading",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial06_Multithreading/assets",
             "environment": [],
@@ -287,14 +310,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial06_Multithreading"
         },
         {
             "name": "Tutorial07_GeometryShader",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial07_GeometryShader/Tutorial07_GeometryShader",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial07_GeometryShader/Tutorial07_GeometryShader",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial07_GeometryShader/assets",
             "environment": [],
@@ -306,14 +330,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial07_GeometryShader"
         },
         {
             "name": "Tutorial08_Tessellation",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial08_Tessellation/Tutorial08_Tessellation",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial08_Tessellation/Tutorial08_Tessellation",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial08_Tessellation/assets",
             "environment": [],
@@ -325,14 +350,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial08_Tessellation"
         },
         {
             "name": "Tutorial09_Quads",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial09_Quads/Tutorial09_Quads",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial09_Quads/Tutorial09_Quads",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial09_Quads/assets",
             "environment": [],
@@ -344,14 +370,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial09_Quads"
         },
         {
             "name": "Tutorial10_DataStreaming",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial10_DataStreaming/Tutorial10_DataStreaming",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial10_DataStreaming/Tutorial10_DataStreaming",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial10_DataStreaming/assets",
             "environment": [],
@@ -363,14 +390,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial10_DataStreaming"
         },
         {
             "name": "Tutorial11_ResourceUpdates",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial11_ResourceUpdates/Tutorial11_ResourceUpdates",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial11_ResourceUpdates/Tutorial11_ResourceUpdates",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial11_ResourceUpdates/assets",
             "environment": [],
@@ -382,14 +410,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial11_ResourceUpdates"
         },
         {
             "name": "Tutorial12_RenderTarget",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial12_RenderTarget/Tutorial12_RenderTarget",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial12_RenderTarget/Tutorial12_RenderTarget",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial12_RenderTarget/assets",
             "environment": [],
@@ -401,14 +430,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial12_RenderTarget"
         },
         {
             "name": "Tutorial13_ShadowMap",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial13_ShadowMap/Tutorial13_ShadowMap",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial13_ShadowMap/Tutorial13_ShadowMap",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial13_ShadowMap/assets",
             "environment": [],
@@ -420,14 +450,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial13_ShadowMap"
         },
         {
             "name": "Tutorial14_ComputeShader",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial14_ComputeShader/Tutorial14_ComputeShader",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial14_ComputeShader/Tutorial14_ComputeShader",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial14_ComputeShader/assets",
             "environment": [],
@@ -439,14 +470,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial14_ComputeShader"
         },
         {
             "name": "Tutorial16_BindlessResources",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial16_BindlessResources/Tutorial16_BindlessResources",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial16_BindlessResources/Tutorial16_BindlessResources",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial16_BindlessResources/assets",
             "environment": [],
@@ -458,14 +490,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial16_BindlessResources"
         },
         {
             "name": "Tutorial17_MSAA",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial17_MSAA/Tutorial17_MSAA",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial17_MSAA/Tutorial17_MSAA",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial17_MSAA/assets",
             "environment": [],
@@ -477,14 +510,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial17_MSAA"
         },
         {
             "name": "Tutorial18_Queries",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial18_Queries/Tutorial18_Queries",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial18_Queries/Tutorial18_Queries",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial18_Queries/assets",
             "environment": [],
@@ -496,14 +530,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial18_Queries"
         },
         {
             "name": "Tutorial19_RenderPasses",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial19_RenderPasses/Tutorial19_RenderPasses",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial19_RenderPasses/Tutorial19_RenderPasses",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial19_RenderPasses/assets",
             "environment": [],
@@ -515,14 +550,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial19_RenderPasses"
         },
         {
             "name": "Tutorial20_MeshShader",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial20_MeshShader/Tutorial20_MeshShader",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial20_MeshShader/Tutorial20_MeshShader",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial20_MeshShader/assets",
             "environment": [],
@@ -534,14 +570,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial20_MeshShader"
         },
         {
             "name": "Tutorial21_RayTracing",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial21_RayTracing/Tutorial21_RayTracing",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial21_RayTracing/Tutorial21_RayTracing",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial21_RayTracing/assets",
             "environment": [],
@@ -553,14 +590,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial21_RayTracing"
         },
         {
             "name": "Tutorial22_HybridRendering",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial22_HybridRendering/Tutorial22_HybridRendering",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial22_HybridRendering/Tutorial22_HybridRendering",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial22_HybridRendering/assets",
             "environment": [],
@@ -572,14 +610,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial22_HybridRendering"
         },
         {
             "name": "Tutorial23_CommandQueues",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial23_CommandQueues/Tutorial23_CommandQueues",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial23_CommandQueues/Tutorial23_CommandQueues",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial23_CommandQueues/assets",
             "environment": [],
@@ -591,14 +630,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial23_CommandQueues"
         },
         {
             "name": "Tutorial24_VRS",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial24_VRS/Tutorial24_VRS",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial24_VRS/Tutorial24_VRS",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial24_VRS/assets",
             "environment": [],
@@ -610,14 +650,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial24_VRS"
         },
         {
             "name": "Tutorial25_StatePackager",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial25_StatePackager/Tutorial25_StatePackager",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial25_StatePackager/Tutorial25_StatePackager",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial25_StatePackager/assets",
             "environment": [],
@@ -629,14 +670,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial25_StatePackager"
         },
         {
             "name": "Tutorial26_StateCache",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial26_StateCache/Tutorial26_StateCache",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial26_StateCache/Tutorial26_StateCache",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial26_StateCache/assets",
             "environment": [],
@@ -648,14 +690,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial26_StateCache"
         },
         {
             "name": "Tutorial27_PostProcessing",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentSamples/Tutorials/Tutorial27_PostProcessing/Tutorial27_PostProcessing",
-            "args": ["--mode", "vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial27_PostProcessing/Tutorial27_PostProcessing",
+            "args": ["--mode", "${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial27_PostProcessing/assets",
             "environment": [],
@@ -667,13 +710,34 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build Tutorial27_PostProcessing"
         },
+        {
+            "name": "Tutorial29_OIT",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial29_OIT/Tutorial29_OIT",
+            "args": ["--mode", "${input:graphicsMode}"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial29_OIT/assets",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "Build Tutorial29_OIT"
+        },        
         {
             "name": "DiligentCoreTest",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentCore/Tests/DiligentCoreTest/DiligentCoreTest",
+            "program": "${command:cmake.buildDirectory}/DiligentCore/Tests/DiligentCoreTest/DiligentCoreTest",
             "args": [""],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentCore/Tests/DiligentCoreTest/assets",
@@ -686,14 +750,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build DiligentCoreTest"
         },
         {
             "name": "DiligentCoreAPITest",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentCore/Tests/DiligentCoreAPITest/DiligentCoreAPITest",
-            "args": ["--mode=vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentCore/Tests/DiligentCoreAPITest/DiligentCoreAPITest",
+            "args": ["--mode=${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentCore/Tests/DiligentCoreAPITest/assets",
             "environment": [],
@@ -705,13 +770,14 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build DiligentCoreAPITest"
         },
         {
             "name": "DiligentToolsTest",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentTools/Tests/DiligentToolsTest/DiligentToolsTest",
+            "program": "${command:cmake.buildDirectory}/DiligentTools/Tests/DiligentToolsTest/DiligentToolsTest",
             "args": ["--gtest_filter=*.*"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentTools/Tests/DiligentToolsTest/assets",
@@ -724,14 +790,15 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build DiligentToolsTest"
         },
         {
             "name": "DiligentToolsGPUTest",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentTools/Tests/DiligentToolsGPUTest/DiligentToolsGPUTest",
-            "args": ["--mode=vk"],
+            "program": "${command:cmake.buildDirectory}/DiligentTools/Tests/DiligentToolsGPUTest/DiligentToolsGPUTest",
+            "args": ["--mode=${input:graphicsMode}"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentTools/Tests/DiligentToolsGPUTest/assets",
             "environment": [],
@@ -743,13 +810,14 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build DiligentToolsGPUTest"
         },
         {
             "name": "HLSL2GLSLConverter",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentTools/HLSL2GLSLConverter/HLSL2GLSLConverter",
+            "program": "${command:cmake.buildDirectory}/DiligentTools/HLSL2GLSLConverter/HLSL2GLSLConverter",
             "args": ["-i", "ConverterTest.fx", "-e", "TestPS", "-t", "ps", "-c"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentTools/HLSL2GLSLConverter/testshaders",
@@ -762,13 +830,14 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build HLSL2GLSLConverter"
         },
         {
             "name": "RenderStatePackager",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/DiligentTools/RenderStatePackager/Diligent-RenderStatePackager",
+            "program": "${command:cmake.buildDirectory}/DiligentTools/RenderStatePackager/Diligent-RenderStatePackager",
             "args": [""],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentTools/RenderStatePackager",
@@ -781,7 +850,8 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Build RenderStatePackager"
         },
     ]
 }

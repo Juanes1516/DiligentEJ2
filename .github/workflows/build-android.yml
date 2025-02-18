@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
 
     strategy:
       matrix:
@@ -19,7 +19,7 @@ jobs:
 
     steps:
     - name: Clean Disk
-      uses: DiligentGraphics/github-action/clean-disk-ubuntu@v1
+      uses: DiligentGraphics/github-action/clean-disk-ubuntu@v3
 
     - name: Clone repository
       uses: actions/checkout@v4
@@ -28,7 +28,7 @@ jobs:
 
     - name: Set up build environment
       if:   success()
-      uses: DiligentGraphics/github-action/setup-build-env@v1
+      uses: DiligentGraphics/github-action/setup-build-env@v3
       with:
         platform: Android
 
